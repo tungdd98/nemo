@@ -1,31 +1,36 @@
 import React, { FC } from 'react';
 import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
-import { theme } from '@nemo/ui';
 import { Box, Button } from '@mui/material';
-import { FormTextField } from '@nemo/ui';
+import { FormTextField, FormSelect, FormCheckbox, theme } from '@nemo/ui';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 
 type FormValues = {
   name: string;
+  age: string;
+  agree: boolean;
 };
 
 const schema = yup.object({
   name: yup.string().required(),
+  age: yup.string().required(),
+  agree: yup.boolean().required(),
 });
 
 const App: FC = () => {
   const { handleSubmit, control } = useForm<FormValues>({
     defaultValues: {
       name: '',
+      age: '',
+      agree: false,
     },
     mode: 'onChange',
     resolver: yupResolver(schema),
   });
   const onSubmit = (data: FormValues) => {
-    alert(data.name);
+    console.log(data);
   };
 
   return (
@@ -35,9 +40,28 @@ const App: FC = () => {
       {/* Form */}
       <Box maxWidth={500} p={3}>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <Box mb={2}>
-            <FormTextField control={control} name="name" label="Name" />
-          </Box>
+          <FormTextField
+            control={control}
+            name="name"
+            label="Name"
+            textFieldProps={{ sx: { mb: 2 } }}
+          />
+          <FormSelect
+            control={control}
+            name="age"
+            label="Age"
+            options={[
+              { value: '10', label: 'Ten' },
+              { value: '20', label: 'Twenty' },
+            ]}
+            formControlProps={{ sx: { mb: 2 } }}
+          />
+          <FormCheckbox
+            name="agree"
+            control={control}
+            label="Agree"
+            formControlProps={{ sx: { mb: 2 } }}
+          />
           <Button variant="contained" type="submit">
             Submit
           </Button>

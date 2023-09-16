@@ -15,7 +15,10 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@nemo/ui": ["modules/ui/src/index.ts"]
+      "@nemo/api": ["modules/common/api/src/index.ts"],
+      "@nemo/helpers": ["modules/common/helpers/src/index.ts"],
+      "@nemo/ui": ["modules/common/ui/src/index.ts"],
+      "@nemo/user": ["modules/user/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

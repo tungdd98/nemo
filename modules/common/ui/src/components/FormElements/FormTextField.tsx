@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, memo } from 'react';
 import { Controller } from 'react-hook-form';
 import { FormInputProps } from '../../types/form.types';
 import { TextField, TextFieldProps } from '@mui/material';
@@ -34,4 +34,4 @@ const FormTextField: FC<FormTextFieldProps> = ({
   );
 };
 
-export default FormTextField;
+export default memo(FormTextField);
