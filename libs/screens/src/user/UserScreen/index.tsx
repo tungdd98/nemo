@@ -182,52 +182,49 @@ const CreateScreen: FC = () => {
         component={Paper}
         sx={{ minHeight: 200, position: 'relative' }}
       >
-        {loading ? (
-          <Loader />
-        ) : (
-          <Table sx={{ minWidth: 650 }}>
-            <TableHead>
-              <TableRow>
-                <TableCell>ID</TableCell>
-                <TableCell>Name</TableCell>
-                <TableCell>Age</TableCell>
-                <TableCell>Created At</TableCell>
-                <TableCell>Actions</TableCell>
+        {loading && <Loader hasBackdrop />}
+        <Table sx={{ minWidth: 650 }}>
+          <TableHead>
+            <TableRow>
+              <TableCell>ID</TableCell>
+              <TableCell>Name</TableCell>
+              <TableCell>Age</TableCell>
+              <TableCell>Created At</TableCell>
+              <TableCell>Actions</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {users.map((item) => (
+              <TableRow
+                key={item.id}
+                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+              >
+                <TableCell component="th" scope="row">
+                  {item.id}
+                </TableCell>
+                <TableCell>{item.name}</TableCell>
+                <TableCell>{item.age}</TableCell>
+                <TableCell>{item.createdAt}</TableCell>
+                <TableCell>
+                  <IconButton
+                    size="small"
+                    color="info"
+                    onClick={() => handleSelectRowEdit(item)}
+                  >
+                    <EditRounded />
+                  </IconButton>
+                  <IconButton
+                    size="small"
+                    color="error"
+                    onClick={() => handleSelectRowDelete(item)}
+                  >
+                    <DeleteRounded />
+                  </IconButton>
+                </TableCell>
               </TableRow>
-            </TableHead>
-            <TableBody>
-              {users.map((item) => (
-                <TableRow
-                  key={item.id}
-                  sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                >
-                  <TableCell component="th" scope="row">
-                    {item.id}
-                  </TableCell>
-                  <TableCell>{item.name}</TableCell>
-                  <TableCell>{item.age}</TableCell>
-                  <TableCell>{item.createdAt}</TableCell>
-                  <TableCell>
-                    <IconButton
-                      size="small"
-                      color="info"
-                      onClick={() => handleSelectRowEdit(item)}
-                    >
-                      <EditRounded />
-                    </IconButton>
-                    <IconButton
-                      size="small"
-                      color="error"
-                      onClick={() => handleSelectRowDelete(item)}
-                    >
-                      <DeleteRounded />
-                    </IconButton>
-                  </TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        )}
+            ))}
+          </TableBody>
+        </Table>
 
         <TablePagination
           rowsPerPageOptions={[5, 10, 25]}

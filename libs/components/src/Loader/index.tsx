@@ -3,9 +3,10 @@ import { Box, CircularProgress } from '@mui/material';
 
 type LoaderProps = {
   isFullScreen?: boolean;
+  hasBackdrop?: boolean;
 };
 
-const Loader: FC<LoaderProps> = ({ isFullScreen }) => {
+const Loader: FC<LoaderProps> = ({ isFullScreen, hasBackdrop }) => {
   if (isFullScreen) {
     return (
       <Box
@@ -19,7 +20,7 @@ const Loader: FC<LoaderProps> = ({ isFullScreen }) => {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          bgcolor: 'background.paper',
+          bgcolor: hasBackdrop ? 'text.primary' : 'background.paper',
           flexDirection: 'column',
         }}
       >
@@ -37,6 +38,8 @@ const Loader: FC<LoaderProps> = ({ isFullScreen }) => {
         alignItems: 'center',
         justifyContent: 'center',
         position: 'absolute',
+        bgcolor: hasBackdrop ? 'rgba(255, 255, 255, 0.8)' : 'background.paper',
+        zIndex: 1000,
       }}
     >
       <CircularProgress />
