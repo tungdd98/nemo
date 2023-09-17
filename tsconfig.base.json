@@ -15,10 +15,15 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@nemo/api": ["modules/common/api/src/index.ts"],
-      "@nemo/helpers": ["modules/common/helpers/src/index.ts"],
-      "@nemo/ui": ["modules/common/ui/src/index.ts"],
-      "@nemo/user": ["modules/user/src/index.ts"]
+      "@nemo/common-api": ["libs/api/src/index.ts"],
+      "@nemo/common-components": ["libs/components/src/index.ts"],
+      "@nemo/common-constants": ["libs/constants/src/index.ts"],
+      "@nemo/common-helpers": ["libs/helpers/src/index.ts"],
+      "@nemo/common-hooks": ["libs/hooks/src/index.ts"],
+      "@nemo/common-redux": ["libs/redux/src/index.ts"],
+      "@nemo/common-screens": ["libs/screens/src/index.ts"],
+      "@nemo/common-styles": ["libs/styles/src/index.ts"],
+      "@nemo/common-types": ["libs/types/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

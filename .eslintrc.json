@@ -26,6 +26,18 @@
                 "onlyDependOnLibsWithTags": [
                   "*"
                 ]
+              },
+              {
+                "sourceTag": "type:feature",
+                "onlyDependOnLibsWithTags": [
+                  "type:modules"
+                ]
+              },
+              {
+                "sourceTag": "type:modules",
+                "onlyDependOnLibsWithTags": [
+                  "type:feature"
+                ]
               }
             ]
           }
