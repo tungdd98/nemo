@@ -27,7 +27,7 @@ import {
   USER_DEFAULT_PAGINATION,
   USER_FORM_DEFAULT_VALUES,
 } from '@nemo/common-constants';
-import { userFormSchema } from '@nemo/common-helpers';
+import { formatDate, userFormSchema } from '@nemo/common-helpers';
 import {
   createUser,
   deleteUser,
@@ -204,7 +204,7 @@ const CreateScreen: FC = () => {
                 </TableCell>
                 <TableCell>{item.name}</TableCell>
                 <TableCell>{item.age}</TableCell>
-                <TableCell>{item.createdAt}</TableCell>
+                <TableCell>{formatDate(item.createdAt)}</TableCell>
                 <TableCell>
                   <IconButton
                     size="small"
