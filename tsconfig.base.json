@@ -23,6 +23,7 @@
       "@nemo/common-redux": ["libs/redux/src/index.ts"],
       "@nemo/common-screens": ["libs/screens/src/index.ts"],
       "@nemo/common-styles": ["libs/styles/src/index.ts"],
+      "@nemo/common-test-unit": ["libs/test-unit/src/index.ts"],
       "@nemo/common-types": ["libs/types/src/index.ts"]
     }
   },

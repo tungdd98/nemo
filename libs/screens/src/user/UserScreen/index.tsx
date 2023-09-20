@@ -48,6 +48,7 @@ const CreateScreen: FC = () => {
     USER_DEFAULT_PAGINATION
   );
   const [loading, setLoading] = useState(false);
+  const [isFirstLoading, setIsFirstLoading] = useState(true);
   const [openFormDialog, setOpenFormDialog] = useState(false);
   const [openDeleteDialog, setOpenDeleteDialog] = useState(false);
   const [selectedUser, setSelectedUser] = useState<User | null>(null);
@@ -154,8 +155,14 @@ const CreateScreen: FC = () => {
   };
 
   useEffect(() => {
-    handleGetUsers(queries);
-  }, [handleGetUsers, queries]);
+    if (!isFirstLoading) {
+      return;
+    }
+
+    dispatch(getUsers(queries)).finally(() => {
+      setIsFirstLoading(false);
+    });
+  }, [dispatch, isFirstLoading, queries]);
 
   useEffect(() => {
     if (selectedUser) {
