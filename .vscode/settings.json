@@ -1,5 +1,14 @@
 {
-  "cSpell.words": [
-    "nemo"
-  ]
+  "cSpell.words": ["nemo"],
+  "editor.formatOnSave": true,
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
 }
